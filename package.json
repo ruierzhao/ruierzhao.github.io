@@ -9,9 +9,9 @@
     "vitepress": "^1.6.3"
   },
   "scripts": {
-    "docs:dev": "vitepress dev _blog",
-    "docs:build": "vitepress build _blog",
-    "docs:preview": "vitepress preview _blog"
+    "docs:dev": "vitepress dev blog",
+    "docs:build": "vitepress build blog",
+    "docs:preview": "vitepress preview blog"
   },
   "__template__": "https://lumen.theojs.cn/",
   "__icon__": "https://icon-sets.iconify.design/",
