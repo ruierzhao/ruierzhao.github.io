@@ -1,0 +1,63 @@
+name: Deploy multi-page GitHub Pages
+
+# 触发条件
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 拉取代码
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      # 安装 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 安装 Blog 项目的依赖
+      - name: Install blog dependencies
+        working-directory: ./blog
+        run: npm install
+
+      - name: Build blog (VitePress)
+        working-directory: ./blog
+        run: npm run build
+
+      # 创建一个新的 deploy/ 目录用于 GitHub Pages 的部署
+      # 把 blog 的构建产物复制到 deploy/blog/，以便映射到 /blog/
+      # 把仓库根目录的 index.html 复制到 deploy/，作为首页 /
+      - name: Prepare deployment folder
+        run: |
+          mkdir deploy
+          cp -r blog/docs/.vitepress/dist deploy/blog
+          cp index.html deploy/index.html  # 如果你有 homepage
+          cp -r assets deploy/assets
+          cp -r dev deploy/dev
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: deploy
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
