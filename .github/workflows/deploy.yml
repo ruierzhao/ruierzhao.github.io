@@ -41,7 +41,7 @@ jobs:
         run: |
           mkdir deploy
           cp -r blog/docs/.vitepress/dist deploy/blog
-          cp index.html deploy/index.html  # 如果你有 homepage
+          cp index.html deploy/index.html
           cp -r assets deploy/assets
           cp -r dev deploy/dev
 
