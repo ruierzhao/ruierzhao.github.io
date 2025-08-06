@@ -1,6 +1,6 @@
 name: Deploy multi-page GitHub Pages
 
-# 触发条件 - test
+# 触发条件 - 
 on:
   push:
     branches: [main]
