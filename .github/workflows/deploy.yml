@@ -27,11 +27,11 @@ jobs:
 
       # 安装 Blog 项目的依赖
       - name: Install blog dependencies
-        # working-directory: ./
+        working-directory: ./
         run: pnpm install
 
       - name: Build blog (VitePress)
-        # working-directory: ./
+        working-directory: ./
         run: pnpm run docs:build
 
       # 创建一个新的 deploy/ 目录用于 GitHub Pages 的部署
