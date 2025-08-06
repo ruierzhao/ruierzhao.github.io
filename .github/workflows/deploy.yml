@@ -40,7 +40,7 @@ jobs:
       - name: Prepare deployment folder
         run: |
           mkdir deploy
-          cp -r blog/docs/.vitepress/dist deploy/blog
+          cp -r blog/.vitepress/dist deploy/blog
           cp index.html deploy/index.html
           cp -r assets deploy/assets
           cp -r dev deploy/dev
