@@ -1,4 +1,10 @@
 {
+  "name": "blog",
+  "author": {
+    "name": "raino",
+    "email": "wenbruier@gmail.com"
+  },
+  "packageManager": "pnpm@9.15.0",
   "devDependencies": {
     "vitepress": "^1.6.3"
   },
@@ -6,5 +12,10 @@
     "docs:dev": "vitepress dev blog",
     "docs:build": "vitepress build blog",
     "docs:preview": "vitepress preview blog"
+  },
+  "__template__": "https://lumen.theojs.cn/",
+  "__icon__": "https://icon-sets.iconify.design/",
+  "dependencies": {
+    "@theojs/lumen": "^6.4.2"
   }
 }
