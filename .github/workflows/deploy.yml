@@ -33,8 +33,7 @@ jobs:
       - name: Build VitePress
         working-directory: ./
         run: |
-          npm run docs:build
-          npm run tools:build
+          npm run build
 
       # 创建一个新的 deploy/ 目录用于 GitHub Pages 的部署
       # 把 blog 的构建产物复制到 deploy/blog/，以便映射到 /blog/
@@ -42,7 +41,7 @@ jobs:
       - name: copy static fils
         run: |
           mkdir deploy
-          cp -r dev-tool-link/.vitepress/dist deploy/dev
+          cp -r dev/.vitepress/dist deploy/dev
           cp -r blog/.vitepress/dist deploy/blog
           cp -r assets deploy/assets
           cp index.html deploy/index.html

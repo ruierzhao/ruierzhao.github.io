@@ -12,9 +12,10 @@
     "docs:dev": "vitepress dev blog",
     "docs:build": "vitepress build blog",
     "docs:preview": "vitepress preview blog",
-    "tools:dev": "vitepress dev dev-tool-link",
-    "tools:build": "vitepress build dev-tool-link",
-    "tools:preview": "vitepress preview dev-tool-link"
+    "tools:dev": "vitepress dev dev",
+    "tools:build": "vitepress build dev",
+    "tools:preview": "vitepress preview dev",
+    "build": "vitepress build blog && vitepress build dev"
   },
   "__template__": "https://lumen.theojs.cn/",
   "__icon__": "https://icon-sets.iconify.design/",
