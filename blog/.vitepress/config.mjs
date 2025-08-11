@@ -3,7 +3,7 @@ import { nav, sidebar } from './configs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "raino",
+  title: "🐼 raino - blog",
   description: "A VitePress Site",
 
   themeConfig: {

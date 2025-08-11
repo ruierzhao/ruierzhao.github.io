@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "dev-tool-links",
+  base:"/dev/",
+  title: "🐼 raino - dev-tools",
   description: "常用开发工具及文档",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
