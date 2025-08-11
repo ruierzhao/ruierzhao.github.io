@@ -28,25 +28,36 @@ jobs:
       # 安装 Blog 项目的依赖
       - name: Install blog dependencies
         working-directory: ./
-        run: pnpm install
+        run: npm install
 
       - name: Build blog (VitePress)
         working-directory: ./
-        run: pnpm run docs:build
-
-      # 创建一个新的 deploy/ 目录用于 GitHub Pages 的部署
-      # 把 blog 的构建产物复制到 deploy/blog/，以便映射到 /blog/
-      # 把仓库根目录的 index.html 复制到 deploy/，作为首页 /
+        run: npm run docs:build
+      
+      - name: Build tool-links (VitePress)
+        working-directory: ./
+        run: npm run tools:build
+      
       - name: Prepare deployment folder
+        run: mkdir deploy
+
+      - name: copy links folder
+        run: cp -r dev-tool-link/.vitepress/dist deploy/dev
+      
+      - name: copy index files
         run: |
-          mkdir deploy
-          cp -r blog/.vitepress/dist deploy/blog
           cp index.html deploy/index.html
           cp -r assets deploy/assets
           cp -r dev deploy/dev
 
+      # 创建一个新的 deploy/ 目录用于 GitHub Pages 的部署
+      # 把 blog 的构建产物复制到 deploy/blog/，以便映射到 /blog/
+      # 把仓库根目录的 index.html 复制到 deploy/，作为首页 /
+      - name: copy blog folder
+        run: cp -r blog/.vitepress/dist deploy/blog
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v
         with:
           path: deploy
 

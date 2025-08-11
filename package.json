@@ -11,11 +11,15 @@
   "scripts": {
     "docs:dev": "vitepress dev blog",
     "docs:build": "vitepress build blog",
-    "docs:preview": "vitepress preview blog"
+    "docs:preview": "vitepress preview blog",
+    "tools:dev": "vitepress dev dev-tool-link",
+    "tools:build": "vitepress build dev-tool-link",
+    "tools:preview": "vitepress preview dev-tool-link"
   },
   "__template__": "https://lumen.theojs.cn/",
   "__icon__": "https://icon-sets.iconify.design/",
   "dependencies": {
-    "@theojs/lumen": "^6.4.2"
+    "@theojs/lumen": "^6.4.2",
+    "pixi.js": "^8.12.0"
   }
 }

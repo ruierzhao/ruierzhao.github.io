@@ -2,3 +2,9 @@ node_modules
 
 blog/.vitepress/dist
 blog/.vitepress/cache
+
+test
+test-vp
+
+dev-tool-link/.vitepress/dist
+dev-tool-link/.vitepress/cache
